@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "eslint . --ignore-path .gitignore --ext .js --ext .jsx",
     "fix-lint": "yarn lint -- --fix",
-    "prepush": "npm run lint && npm test"
+    "prepush": "npm run lint"
   },
   "repository": {
     "type": "git",

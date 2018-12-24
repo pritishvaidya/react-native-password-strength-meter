@@ -5,8 +5,33 @@ export const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   // Parent
-  wrapper: {
+  containerWrapper: {
     marginVertical: 10,
+  },
+  // Input
+  inputWrapper: {
+    borderBottomWidth: 0.3,
+    borderBottomColor: '#e6e6e6',
+    paddingBottom: 5,
+    marginVertical: 5,
+    marginHorizontal: 10,
+    paddingRight: 30,
+  },
+  input: {
+    fontSize: 16,
+  },
+  imageWrapper: {
+    position: 'absolute',
+    right: 0,
+    bottom: 5,
+  },
+  image: {
+    height: 20,
+    resizeMode: 'contain',
+  },
+  // Password Display Components
+  wrapper: {
+    marginVertical: 5,
     marginHorizontal: 10,
   },
   label: {

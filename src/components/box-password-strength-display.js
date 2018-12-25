@@ -25,6 +25,7 @@ class BoxPasswordStrengthDisplay extends Component {
       password,
       touched,
       scoreLimit,
+      variations,
       minLength,
       labelVisible,
       levels,
@@ -36,7 +37,7 @@ class BoxPasswordStrengthDisplay extends Component {
       width,
       boxSpacing,
     } = this.props;
-    const score = scorePassword(password, minLength, scoreLimit);
+    const score = scorePassword(password, minLength, scoreLimit, variations);
     const { label, labelColor, activeBarColor } = calculateLevel(score, levels);
     const levelWidth = calculateLevelWidth(width, levels, boxSpacing);
     const currentLevelIndex = levels.findIndex(level => level.label === label);
@@ -87,6 +88,12 @@ class BoxPasswordStrengthDisplay extends Component {
 BoxPasswordStrengthDisplay.defaultProps = {
   touched: false,
   scoreLimit: 100,
+  variations: {
+    digits: /\d/,
+    lower: /[a-z]/,
+    upper: /[A-Z]/,
+    nonWords: /\W/,
+  },
   minLength: 5,
   labelVisible: true,
   levels: [
@@ -154,6 +161,7 @@ BoxPasswordStrengthDisplay.propTypes = {
   password: PropTypes.string.isRequired,
   touched: PropTypes.bool,
   scoreLimit: PropTypes.number,
+  variations: PropTypes.object,
   minLength: PropTypes.string,
   labelVisible: PropTypes.bool,
   levels: PropTypes.array,

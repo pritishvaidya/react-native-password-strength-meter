@@ -19,13 +19,14 @@ class TextPasswordStrengthDisplay extends Component {
       password,
       touched,
       scoreLimit,
+      variations,
       minLength,
       labelVisible,
       levels,
       wrapperStyle,
       labelStyle,
     } = this.props;
-    const score = scorePassword(password, minLength, scoreLimit);
+    const score = scorePassword(password, minLength, scoreLimit, variations);
     const { label, labelColor } = calculateLevel(score, levels);
 
     return (
@@ -42,6 +43,12 @@ class TextPasswordStrengthDisplay extends Component {
 TextPasswordStrengthDisplay.defaultProps = {
   touched: false,
   scoreLimit: 100,
+  variations: {
+    digits: /\d/,
+    lower: /[a-z]/,
+    upper: /[A-Z]/,
+    nonWords: /\W/,
+  },
   minLength: 5,
   labelVisible: true,
   levels: [
@@ -94,6 +101,7 @@ TextPasswordStrengthDisplay.propTypes = {
   password: PropTypes.string.isRequired,
   touched: PropTypes.bool,
   scoreLimit: PropTypes.number,
+  variations: PropTypes.object,
   minLength: PropTypes.string,
   labelVisible: PropTypes.bool,
   levels: PropTypes.array,

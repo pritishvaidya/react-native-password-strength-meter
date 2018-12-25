@@ -1,5 +1,5 @@
 /* eslint radix: ["error", "as-needed"] */
-function scorePassword(pass, minLength, limit) {
+function scorePassword(pass, minLength, limit, variations = {}) {
   let score = 0;
   let variationCount = 0;
   const letters = {};
@@ -15,15 +15,9 @@ function scorePassword(pass, minLength, limit) {
   }
 
   /* Score character variation */
-  const variations = {
-    digits: /\d/.test(pass),
-    lower: /[a-z]/.test(pass),
-    upper: /[A-Z]/.test(pass),
-    nonWords: /\W/.test(pass),
-  };
-
-  Object.keys(variations).forEach((check) => {
-    variationCount += variations[check] === true ? 1 : 0;
+  Object.keys(variations).forEach((variation) => {
+    const variationCheck = variations[variation].test(pass);
+    variationCount += variationCheck === true ? 1 : 0;
   });
   score += (variationCount - 1) * 10;
 

@@ -46,6 +46,8 @@ class PasswordInputComponent extends Component {
     const {
       containerWrapperStyle,
       inputWrapperStyle,
+      imageWrapperStyle,
+      imageStyle,
       inputStyle,
       placeholderStyle,
       meterType,
@@ -77,8 +79,11 @@ class PasswordInputComponent extends Component {
             secureTextEntry={secureTextEntry}
             {...inputProps}
           />
-          <TouchableOpacity style={[style.imageWrapper]} onPress={this.toggleSecureText}>
-            <Image style={[style.image]} source={image} />
+          <TouchableOpacity
+            style={[style.imageWrapper, imageWrapperStyle]}
+            onPress={this.toggleSecureText}
+          >
+            <Image style={[style.image, imageStyle]} source={image} />
           </TouchableOpacity>
         </View>
         <PasswordComponent password={password} {...passwordProps} />
@@ -89,6 +94,8 @@ class PasswordInputComponent extends Component {
 PasswordInputComponent.defaultProps = {
   defaultPassword: '',
   containerWrapperStyle: {},
+  imageWrapperStyle: {},
+  imageStyle: {},
   inputWrapperStyle: {},
   inputStyle: {},
   placeholderStyle: {},
@@ -159,6 +166,8 @@ PasswordInputComponent.propTypes = {
   onChangeText: PropTypes.func.isRequired,
   defaultPassword: PropTypes.string,
   containerWrapperStyle: PropTypes.object,
+  imageWrapperStyle: PropTypes.object,
+  imageStyle: PropTypes.object,
   inputWrapperStyle: PropTypes.object,
   inputStyle: PropTypes.object,
   placeholderStyle: PropTypes.object,

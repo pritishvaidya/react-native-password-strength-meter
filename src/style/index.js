@@ -28,6 +28,7 @@ export default StyleSheet.create({
   image: {
     height: 20,
     resizeMode: 'contain',
+    tintColor: '#c0c0c0',
   },
   // Password Display Components
   wrapper: {

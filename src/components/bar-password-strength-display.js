@@ -24,6 +24,7 @@ class BarPasswordStrengthDisplay extends Component {
       password,
       touched,
       scoreLimit,
+      variations,
       minLength,
       labelVisible,
       levels,
@@ -34,7 +35,7 @@ class BarPasswordStrengthDisplay extends Component {
       barColor,
       width,
     } = this.props;
-    const score = scorePassword(password, minLength, scoreLimit);
+    const score = scorePassword(password, minLength, scoreLimit, variations);
     const absoluteWidth = calculateAbsoluteWidth(score, width);
     const { label, labelColor, activeBarColor } = calculateLevel(score, levels);
 
@@ -66,6 +67,12 @@ class BarPasswordStrengthDisplay extends Component {
 BarPasswordStrengthDisplay.defaultProps = {
   touched: false,
   scoreLimit: 100,
+  variations: {
+    digits: /\d/,
+    lower: /[a-z]/,
+    upper: /[A-Z]/,
+    nonWords: /\W/,
+  },
   minLength: 5,
   labelVisible: true,
   levels: [
@@ -132,6 +139,7 @@ BarPasswordStrengthDisplay.propTypes = {
   password: PropTypes.string.isRequired,
   touched: PropTypes.bool,
   scoreLimit: PropTypes.number,
+  variations: PropTypes.object,
   minLength: PropTypes.string,
   labelVisible: PropTypes.bool,
   levels: PropTypes.array,

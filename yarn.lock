@@ -1869,6 +1869,13 @@ react-deep-force-update@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.1.2.tgz#3d2ae45c2c9040cbb1772be52f8ea1ade6ca2ee1"
   integrity sha512-WUSQJ4P/wWcusaH+zZmbECOk7H5N2pOIl0vzheeornkIMhu+qrNdGFm0bDZLCb0hSF0jf/kH1SgkNGfBdTc4wA==
 
+react-native-speedometer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-speedometer/-/react-native-speedometer-1.0.0.tgz#eff74ecf4fcbe67d9f4815d4eb9b91d8896f304e"
+  integrity sha512-i/uM/9W6EYCCUlzf6tI++lJSnuomnL5w9RTO+ncE9b4/e+nzhASPoezAqp6PE6J8jx8I9tlWk4i8JMoG6AyWTA==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-proxy@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-1.1.8.tgz#9dbfd9d927528c3aa9f444e4558c37830ab8c26a"

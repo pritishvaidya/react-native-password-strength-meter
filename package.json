@@ -45,6 +45,7 @@
     "react-native": "^0.57.1"
   },
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react-native-speedometer": "^1.0.0"
   }
 }

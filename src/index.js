@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import BarPasswordStrengthDisplay from './components/bar-password-strength-display';
 import BoxPasswordStrengthDisplay from './components/box-password-strength-display';
 import TextPasswordStrengthDisplay from './components/text-password-strength-display';
+import CircularPasswordStrengthDisplay from './components/circular-password-strength-display';
 
 // Utils
 import isReactComponent from './utils/check-react-component';
@@ -17,6 +18,7 @@ import calculateLevel from './utils/calculate-level';
 
 // Styles
 import style from './style';
+import { PASSWORD_INPUT } from './constants';
 
 class PasswordInputComponent extends Component {
   constructor(props) {
@@ -29,7 +31,15 @@ class PasswordInputComponent extends Component {
   }
 
   change = (password) => {
-    const { onChangeText, passwordProps: { levels, minLength, scoreLimit } } = this.props;
+    const {
+      onChangeText,
+      passwordProps: {
+        levels = PASSWORD_INPUT.passwordProps.levels,
+        minLength = PASSWORD_INPUT.passwordProps.minLength,
+        scoreLimit = PASSWORD_INPUT.passwordProps.scoreLimit,
+      },
+    } = this.props;
+    console.log({ levels, minLength, scoreLimit });
     const score = scorePassword(password, minLength, scoreLimit);
     const { label, labelColor, activeBarColor } = calculateLevel(score, levels);
     this.setState({
@@ -63,6 +73,8 @@ class PasswordInputComponent extends Component {
       PasswordComponent = BarPasswordStrengthDisplay;
     } else if (meterType === 'box') {
       PasswordComponent = BoxPasswordStrengthDisplay;
+    } else if (meterType === 'circle') {
+      PasswordComponent = CircularPasswordStrengthDisplay;
     } else {
       PasswordComponent = TextPasswordStrengthDisplay;
     }
@@ -70,6 +82,7 @@ class PasswordInputComponent extends Component {
       <View style={[style.containerWrapper, containerWrapperStyle]}>
         <View style={[style.inputWrapper, inputWrapperStyle]}>
           <TextInput
+            {...inputProps}
             style={
               placeholderVisible
                 ? [style.input, inputStyle, placeholderStyle]
@@ -77,7 +90,6 @@ class PasswordInputComponent extends Component {
             value={password}
             onChangeText={this.change}
             secureTextEntry={secureTextEntry}
-            {...inputProps}
           />
           <TouchableOpacity
             style={[style.imageWrapper, imageWrapperStyle]}
@@ -91,76 +103,7 @@ class PasswordInputComponent extends Component {
     );
   }
 }
-PasswordInputComponent.defaultProps = {
-  defaultPassword: '',
-  containerWrapperStyle: {},
-  imageWrapperStyle: {},
-  imageStyle: {},
-  inputWrapperStyle: {},
-  inputStyle: {},
-  placeholderStyle: {},
-  meterType: 'bar',
-  inputProps: {
-    placeholder: 'Password',
-    secureTextEntry: true,
-  },
-  passwordProps: {
-    scoreLimit: 100,
-    minLength: 5,
-    levels: [
-      {
-        label: 'Pathetically weak',
-        labelColor: '#ff2900',
-        activeBarColor: '#ff2900',
-      },
-      {
-        label: 'Extremely weak',
-        labelColor: '#ff3e00',
-        activeBarColor: '#ff3e00',
-      },
-      {
-        label: 'Very weak',
-        labelColor: '#ff5400',
-        activeBarColor: '#ff5400',
-      },
-      {
-        label: 'Weak',
-        labelColor: '#ff6900',
-        activeBarColor: '#ff6900',
-      },
-      {
-        label: 'So-so',
-        labelColor: '#f4d744',
-        activeBarColor: '#f4d744',
-      },
-      {
-        label: 'Average',
-        labelColor: '#f3d331',
-        activeBarColor: '#f3d331',
-      },
-      {
-        label: 'Fair',
-        labelColor: '#f2cf1f',
-        activeBarColor: '#f2cf1f',
-      },
-      {
-        label: 'Strong',
-        labelColor: '#14eb6e',
-        activeBarColor: '#14eb6e',
-      },
-      {
-        label: 'Very strong',
-        labelColor: '#0af56d',
-        activeBarColor: '#0af56d',
-      },
-      {
-        label: 'Unbelievably strong',
-        labelColor: '#00ff6b',
-        activeBarColor: '#00ff6b',
-      },
-    ],
-  },
-};
+PasswordInputComponent.defaultProps = PASSWORD_INPUT;
 
 PasswordInputComponent.propTypes = {
   onChangeText: PropTypes.func.isRequired,
@@ -180,4 +123,9 @@ PasswordInputComponent.propTypes = {
 };
 
 export default PasswordInputComponent;
-export { BarPasswordStrengthDisplay, BoxPasswordStrengthDisplay, TextPasswordStrengthDisplay };
+export {
+  BarPasswordStrengthDisplay,
+  BoxPasswordStrengthDisplay,
+  TextPasswordStrengthDisplay,
+  CircularPasswordStrengthDisplay,
+};

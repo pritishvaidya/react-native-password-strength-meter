@@ -1,4 +1,6 @@
 /* eslint radix: ["error", "as-needed"] */
+import limitValue from './limit-value';
+
 function scorePassword(pass, minLength, limit, variations = {}) {
   let score = 0;
   let variationCount = 0;
@@ -21,7 +23,7 @@ function scorePassword(pass, minLength, limit, variations = {}) {
   });
   score += (variationCount - 1) * 10;
 
-  return parseInt(score) > limit ? limit : parseInt(score);
+  return limitValue(score, 0, limit);
 }
 
 export default scorePassword;

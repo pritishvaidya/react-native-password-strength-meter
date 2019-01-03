@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  ScrollView,
+  View,
   TextInput,
 } from 'react-native';
 
@@ -26,7 +26,75 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class App extends Component {
+class PasswordInputBar extends Component {
+  onChange = (password, score, { label, labelColor, activeBarColor }) => {
+    console.log(password, score, { label, labelColor, activeBarColor });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <RNPasswordStrengthMeter
+          onChangeText={this.onChange}
+          meterType="bar"
+        />
+      </View>
+    );
+  }
+}
+
+class PasswordInputBox extends Component {
+  onChange = (password, score, { label, labelColor, activeBarColor }) => {
+    console.log(password, score, { label, labelColor, activeBarColor });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <RNPasswordStrengthMeter
+          onChangeText={this.onChange}
+          meterType="box"
+        />
+      </View>
+    );
+  }
+}
+
+class PasswordInputCircle extends Component {
+  onChange = (password, score, { label, labelColor, activeBarColor }) => {
+    console.log(password, score, { label, labelColor, activeBarColor });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <RNPasswordStrengthMeter
+          onChangeText={this.onChange}
+          meterType="circle"
+        />
+      </View>
+    );
+  }
+}
+
+class PasswordInputText extends Component {
+  onChange = (password, score, { label, labelColor, activeBarColor }) => {
+    console.log(password, score, { label, labelColor, activeBarColor });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <RNPasswordStrengthMeter
+          onChangeText={this.onChange}
+          meterType="text"
+        />
+      </View>
+    );
+  }
+}
+
+class BarComponent extends Component {
   state = {
     password: '',
   }
@@ -36,46 +104,89 @@ export default class App extends Component {
   render() {
     const { password } = this.state;
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <RNPasswordStrengthMeter
-          onChangeText={this.onChange}
-          meterType="bar"
-          containerWrapperStyle={{ marginTop: 20 }}
-        />
-        <RNPasswordStrengthMeter
-          onChangeText={this.onChange}
-          meterType="box"
-          containerWrapperStyle={{ marginTop: 20 }}
-        />
-        <RNPasswordStrengthMeter
-          onChangeText={this.onChange}
-          meterType="text"
-          containerWrapperStyle={{ marginTop: 20 }}
-        />
-        <RNPasswordStrengthMeter
-          onChangeText={this.onChange}
-          meterType="circle"
-          containerWrapperStyle={{ marginTop: 20 }}
-        />
-
+      <View style={styles.container}>
         <TextInput style={styles.textInput} onChangeText={this.onChange} />
         <BarPasswordStrengthDisplay
           password={password}
-          wrapperStyle={{ marginTop: 30 }}
         />
+      </View>
+    );
+  }
+}
+
+class BoxComponent extends Component {
+  state = {
+    password: '',
+  }
+
+  onChange = password => this.setState({ password })
+
+  render() {
+    const { password } = this.state;
+    return (
+      <View style={styles.container}>
+        <TextInput style={styles.textInput} onChangeText={this.onChange} />
         <BoxPasswordStrengthDisplay
           password={password}
-          wrapperStyle={{ marginTop: 30 }}
         />
-        <CircularPasswordStrengthDisplay
-          password={password}
-          wrapperStyle={{ marginTop: 30 }}
-        />
+      </View>
+    );
+  }
+}
+
+class TextComponent extends Component {
+  state = {
+    password: '',
+  }
+
+  onChange = password => this.setState({ password })
+
+  render() {
+    const { password } = this.state;
+    return (
+      <View style={styles.container}>
+        <TextInput style={styles.textInput} onChangeText={this.onChange} />
         <TextPasswordStrengthDisplay
           password={password}
-          wrapperStyle={{ marginTop: 30 }}
         />
-      </ScrollView>
+      </View>
+    );
+  }
+}
+
+class CircleComponent extends Component {
+  state = {
+    password: '',
+  }
+
+  onChange = password => this.setState({ password })
+
+  render() {
+    const { password } = this.state;
+    return (
+      <View style={styles.container}>
+        <TextInput style={styles.textInput} onChangeText={this.onChange} />
+        <CircularPasswordStrengthDisplay
+          password={password}
+        />
+      </View>
+    );
+  }
+}
+
+export default class App extends Component {
+  onChange = (password, score, { label, labelColor, activeBarColor }) => {
+    console.log(password, score, { label, labelColor, activeBarColor });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <RNPasswordStrengthMeter
+          onChangeText={this.onChange}
+          meterType="text"
+        />
+      </View>
     );
   }
 }

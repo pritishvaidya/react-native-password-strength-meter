@@ -60,6 +60,7 @@ class BoxPasswordStrengthDisplay extends Component {
             }
             return (
               <View
+                key={label.label}
                 style={[style.boxContainer,
                   boxContainerStyle,
                   { backgroundColor: boxColor, width: levelWidth, marginHorizontal: boxSpacing },

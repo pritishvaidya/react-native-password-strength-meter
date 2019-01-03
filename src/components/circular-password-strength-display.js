@@ -14,7 +14,6 @@ function CircularPasswordStrengthDisplay({
   minLength,
   scoreLimit,
   variations,
-  minValue,
   easeDuration,
   levels,
   needleImage,
@@ -37,7 +36,6 @@ function CircularPasswordStrengthDisplay({
     <RNSpeedometer
       value={score}
       labels={convertedLevels}
-      minValue={minValue}
       maxValue={scoreLimit}
       easeDuration={easeDuration}
       needleImage={needleImage}
@@ -59,7 +57,6 @@ CircularPasswordStrengthDisplay.propTypes = {
   password: PropTypes.string.isRequired,
   labelVisible: PropTypes.bool,
   minLength: PropTypes.number,
-  minValue: PropTypes.number,
   variations: PropTypes.object,
   scoreLimit: PropTypes.number,
   easeDuration: PropTypes.number,

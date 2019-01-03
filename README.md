@@ -7,17 +7,24 @@ A highly customisable password strength meter implementation with minimal depend
 ## Show Cases
 
 ### Type Bar
-
-![Bar](https://media.giphy.com/media/55ku8KpJo42BhkspUh/giphy.gif)
+IOS            |  Android
+:-------------------------:|:-------------------------:
+![Bar](https://media.giphy.com/media/fZVZFS9hgJZF5hNHuE/giphy.gif)  |  ![Bar](https://media.giphy.com/media/fnZyxtRKzjDdNFWdi8/giphy.gif)
 
 ### Type Box
-![Box](https://media.giphy.com/media/9xv2CKmleF6NPf3WeD/giphy.gif)
+IOS            |  Android
+:-------------------------:|:-------------------------:
+![Box](https://media.giphy.com/media/x4c5SkDCIlGy2LBnVJ/giphy.gif)  |  ![Box](https://media.giphy.com/media/p3B9ntJOMql4RcN0T3/giphy.gif)
 
 ### Type Circle
-![Circle](https://media.giphy.com/media/4ZrOZdcYK8fXsdLZ8B/giphy.gif)
+IOS            |
+:-------------------------:|
+![Circle](https://media.giphy.com/media/69ohiIRMbjFmhwXJDL/giphy.gif)  | 
 
 ### Type Text
-![Text](https://media.giphy.com/media/5WihSeidJL7jn8rnLK/giphy.gif)
+IOS            |  Android
+:-------------------------:|:-------------------------:
+![Text](https://media.giphy.com/media/1BcRQlLHOqtk3ji5EA/giphy.gif)  |  ![Text](https://media.giphy.com/media/iBiDp4Ic4WNWFbCtaZ/giphy.gif)
 
 
 ## Getting Started
@@ -111,7 +118,7 @@ export default class BarComponent extends Component {
 | Prop  | Default  | Type | Description |
 | :------------ |---------------:| :---------------| :-----|
 | onChangeText | required | func | Callback to Return Input text changes `(password, score, { label, labelColor, activeBarColor }) => {}` |
-| defaultPassword | '' | string | Default Password Value |
+| defaultPassword | "" | string | Default Password Value |
 | containerWrapperStyle | {} | object | Container wrapper style |
 | imageWrapperStyle | {} | object | Eye Image wrapper style |
 | imageStyle | {}| object | Eye Image style |
@@ -126,7 +133,7 @@ export default class BarComponent extends Component {
 | Prop  | Default  | Type | Description |
 | :------------ |---------------:| :---------------| :-----|
 | password | required | string | Password Value |
-| touched | '' | bool | Field Touched |
+| touched | "" | bool | Field Touched |
 | scoreLimit | 100 | number | Password Score's maximum value  |
 | variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
 | minLength | 5 | number | Minimum length of the password to validate |
@@ -143,7 +150,7 @@ export default class BarComponent extends Component {
 | Prop  | Default  | Type | Description |
 | :------------ |---------------:| :---------------| :-----|
 | password | required | string | Password Value |
-| touched | '' | bool | Field Touched |
+| touched | "" | bool | Field Touched |
 | scoreLimit | 100 | number | Password Score's maximum value  |
 | variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
 | minLength | 5 | number | Minimum length of the password to validate |
@@ -181,7 +188,7 @@ export default class BarComponent extends Component {
 | Prop  | Default  | Type | Description |
 | :------------ |---------------:| :---------------| :-----|
 | password | required | string | Password Value |
-| touched | '' | bool | Field Touched |
+| touched | "" | bool | Field Touched |
 | scoreLimit | 100 | number | Password Score's maximum value  |
 | variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
 | minLength | 5 | number | Minimum length of the password to validate |

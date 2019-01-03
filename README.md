@@ -25,10 +25,7 @@ A highly customisable password strength meter implementation with minimal depend
 - [Installation](#installation)
 - [Basic Usage](#basic-usage)
    - [Password Input Usage](#password-input-usage)
-   - [Bar Component Usage](#bar-component-usage)
-   - [Box Component Usage](#box-component-usage)
-   - [Circle Component Usage](#circle-component-usage)
-   - [Text Component Usage](#text-component-usage)
+   - [Component Usage](#component-usage)
 - [Properties](#properties)
    - [Password Input Props](#password-input-props)
    - [Bar Component Props](#bar-component-props)
@@ -36,11 +33,6 @@ A highly customisable password strength meter implementation with minimal depend
    - [Circle Component Props](#circle-component-props)
    - [Text Component Props](#text-component-props)
 - [Defaults](#defaults)
-   - [Password Input Defaults](#password-input-defaults)
-   - [Bar Component Defaults](#bar-component-defaults)
-   - [Box Component Defaults](#box-component-defaults)
-   - [Circle Component Defaults](#circle-component-defaults)
-   - [Text Component Defaults](#text-component-defaults)
 - [Password Score Algorithm](#password-score-algorithm)
 - [Contribution](#contribution)
 - [Questions](#questions)
@@ -81,7 +73,7 @@ export default class PasswordInput extends Component {
 }
 ```
 
-#### Bar Component Usage
+#### Component Usage
 ```
 import React, { Component } from 'react';
 import {
@@ -113,102 +105,6 @@ export default class BarComponent extends Component {
 }
 ```
 
-#### Box Input Usage
-```
-import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput
-} from 'react-native';
-
-import { BoxPasswordStrengthDisplay } from 'react-native-password-strength-meter';
-
-export default class BoxComponent extends Component {
-  state = {
-    password: '',
-  }
-
-  onChange = password => this.setState({ password })
-
-  render() {
-    const { password } = this.state;
-    return (
-      <View style={styles.container}>
-        <TextInput style={styles.textInput} onChangeText={this.onChange} />
-        <BoxPasswordStrengthDisplay
-          password={password}
-        />
-      </View>
-    );
-  }
-}
-```
-
-#### Circle Input Usage
-```
-import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput
-} from 'react-native';
-
-import { CirclePasswordStrengthDisplay } from 'react-native-password-strength-meter';
-
-export default class CircleComponent extends Component {
-  state = {
-    password: '',
-  }
-
-  onChange = password => this.setState({ password })
-
-  render() {
-    const { password } = this.state;
-    return (
-      <View style={styles.container}>
-        <TextInput style={styles.textInput} onChangeText={this.onChange} />
-        <CirclePasswordStrengthDisplay
-          password={password}
-        />
-      </View>
-    );
-  }
-}
-```
-
-#### Text Input Usage
-```
-import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput
-} from 'react-native';
-
-import { TextPasswordStrengthDisplay } from 'react-native-password-strength-meter';
-
-export default class BarComponent extends Component {
-  state = {
-    password: '',
-  }
-
-  onChange = password => this.setState({ password })
-
-  render() {
-    const { password } = this.state;
-    return (
-      <View style={styles.container}>
-        <TextInput style={styles.textInput} onChangeText={this.onChange} />
-        <TextPasswordStrengthDisplay
-          password={password}
-        />
-      </View>
-    );
-  }
-}
-```
-
 ### Properties
 
 #### Password Input Props
@@ -223,8 +119,8 @@ export default class BarComponent extends Component {
 | inputStyle | {} | object | Text Input style |
 | placeholderStyle | {} | object | Text Input placeholder style |
 | meterType   | `bar` | enum | Meter Type. Can be `bar`, `box`, `circle`, `text`  |
-| inputProps | [Password Input Defaults](#password-input-defaults) | object | React Native's TextInput Props |
-| passwordProps | [Password Input Defaults](#password-input-defaults) | object | Password Component Props |
+| inputProps | [Defaults](#defaults) | object | React Native's TextInput Props |
+| passwordProps | [Defaults](#defaults) | object | Password Component Props |
 
 #### Bar Component Props
 | Prop  | Default  | Type | Description |
@@ -232,10 +128,10 @@ export default class BarComponent extends Component {
 | password | required | string | Password Value |
 | touched | '' | bool | Field Touched |
 | scoreLimit | 100 | number | Password Score's maximum value  |
-| variations | [Bar Component Defaults](#bar-component-defaults) | object | Different validations in regex to calculate password score |
+| variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
 | minLength | 5 | number | Minimum length of the password to validate |
 | labelVisible | true | bool | Label Visible |
-| levels | [Bar Component Defaults](#bar-component-defaults) | array | Different Levels to calculate password score |
+| levels | [Defaults](#defaults) | array | Different Levels to calculate password score |
 | wrapperStyle | {} | object | Wrapper style |
 | barContainerStyle   | {} | object | Bar Container style  |
 | barStyle | {} | object | Bar style |
@@ -249,10 +145,10 @@ export default class BarComponent extends Component {
 | password | required | string | Password Value |
 | touched | '' | bool | Field Touched |
 | scoreLimit | 100 | number | Password Score's maximum value  |
-| variations | [Box Component Defaults](#box-component-defaults) | object | Different validations in regex to calculate password score |
+| variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
 | minLength | 5 | number | Minimum length of the password to validate |
 | labelVisible | true | bool | Label Visible |
-| levels | [Box Component Defaults](#box-component-defaults) | array | Different Levels to calculate password score |
+| levels | [Defaults](#defaults) | array | Different Levels to calculate password score |
 | wrapperStyle | {} | object | Wrapper style |
 | boxContainerStyle   | {} | object | Box Container style  |
 | boxStyle | {} | object | Box style |
@@ -269,8 +165,8 @@ export default class BarComponent extends Component {
 | minLength | 5 | number | Minimum length of the password to validate |
 | scoreLimit | 100 | number | Password Score's maximum value  |
 | easeDuration | 500 | number | Ease Duration of the meter needle  |
-| variations | [Circle Component Defaults](#circle-component-defaults) | object | Different validations in regex to calculate password score |
-| levels | [Circle Component Defaults](#circle-component-defaults) | array | Different Levels to calculate password score |
+| variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
+| levels | [Defaults](#defaults) | array | Different Levels to calculate password score |
 | wrapperStyle | {} | object | Wrapper style |
 | outerCircleStyle   | {} | object | Outer circle style  |
 | imageWrapperStyle | {} | object | Image wrapper style |
@@ -279,7 +175,7 @@ export default class BarComponent extends Component {
 | labelWrapperStyle | {} | object | Label wrapper style |
 | labelStyle | {} | object | Label style |
 | labelNoteStyle | {} | object | Label note style |
-| needleImage | [Circle Component Defaults](#circle-component-defaults) | string | Absolute path to the needle image |
+| needleImage | [Defaults](#defaults) | string | Absolute path to the needle image |
 
 #### Text Component Props
 | Prop  | Default  | Type | Description |
@@ -287,15 +183,14 @@ export default class BarComponent extends Component {
 | password | required | string | Password Value |
 | touched | '' | bool | Field Touched |
 | scoreLimit | 100 | number | Password Score's maximum value  |
-| variations | [Text Component Defaults](#text-component-defaults) | object | Different validations in regex to calculate password score |
+| variations | [Defaults](#defaults) | object | Different validations in regex to calculate password score |
 | minLength | 5 | number | Minimum length of the password to validate |
 | labelVisible | true | bool | Label Visible |
-| levels | [Text Component Defaults](#text-component-defaults) | array | Different Levels to calculate password score |
+| levels | [Defaults](#defaults) | array | Different Levels to calculate password score |
 | wrapperStyle | {} | object | Wrapper style |
 | labelStyle | {} | object | Label style |
 
 ### Defaults
-#### Password Input Defaults
 ```
 defaultPassword: '',
 containerWrapperStyle: {},
@@ -305,354 +200,96 @@ inputWrapperStyle: {},
 inputStyle: {},
 placeholderStyle: {},
 meterType: 'bar',
-  inputProps: {
-  placeholder: 'Password',
+   inputProps: {
+    placeholder: 'Password',
   secureTextEntry: true,
 },
 passwordProps: {
-  minLength: 5,
-  scoreLimit: 100,
-  levels: [
-    {
-      label: 'Pathetically weak',
-      labelColor: '#ff2900',
-      activeBarColor: '#ff2900',
-    },
-    {
-      label: 'Extremely weak',
-      labelColor: '#ff3e00',
-      activeBarColor: '#ff3e00',
-    },
-    {
-      label: 'Very weak',
-      labelColor: '#ff5400',
-      activeBarColor: '#ff5400',
-    },
-    {
-      label: 'Weak',
-      labelColor: '#ff6900',
-      activeBarColor: '#ff6900',
-    },
-    {
-      label: 'So-so',
-      labelColor: '#f4d744',
-      activeBarColor: '#f4d744',
-    },
-    {
-      label: 'Average',
-      labelColor: '#f3d331',
-      activeBarColor: '#f3d331',
-    },
-    {
-      label: 'Fair',
-      labelColor: '#f2cf1f',
-      activeBarColor: '#f2cf1f',
-    },
-    {
-      label: 'Strong',
-      labelColor: '#14eb6e',
-      activeBarColor: '#14eb6e',
-    },
-    {
-      label: 'Very strong',
-      labelColor: '#0af56d',
-      activeBarColor: '#0af56d',
-    },
-    {
-      label: 'Unbelievably strong',
-      labelColor: '#00ff6b',
-      activeBarColor: '#00ff6b',
-    },
-  ],
+   touched: false,
+   scoreLimit: 100,
+   variations: {
+     digits: /\d/,
+     lower: /[a-z]/,
+     upper: /[A-Z]/,
+     nonWords: /\W/,
+   },
+   minLength: 5,
+   labelVisible: true,
+   levels: [
+     {
+       label: 'Pathetically weak',
+       labelColor: '#ff2900',
+       activeBarColor: '#ff2900',
+     },
+     {
+       label: 'Extremely weak',
+       labelColor: '#ff3e00',
+       activeBarColor: '#ff3e00',
+     },
+     {
+       label: 'Very weak',
+       labelColor: '#ff5400',
+       activeBarColor: '#ff5400',
+     },
+     {
+       label: 'Weak',
+       labelColor: '#ff6900',
+       activeBarColor: '#ff6900',
+     },
+     {
+       label: 'So-so',
+       labelColor: '#f4d744',
+       activeBarColor: '#f4d744',
+     },
+     {
+       label: 'Average',
+       labelColor: '#f3d331',
+       activeBarColor: '#f3d331',
+     },
+     {
+       label: 'Fair',
+       labelColor: '#f2cf1f',
+       activeBarColor: '#f2cf1f',
+     },
+     {
+       label: 'Strong',
+       labelColor: '#14eb6e',
+       activeBarColor: '#14eb6e',
+     },
+     {
+       label: 'Very strong',
+       labelColor: '#0af56d',
+       activeBarColor: '#0af56d',
+     },
+     {
+       label: 'Unbelievably strong',
+       labelColor: '#00ff6b',
+       activeBarColor: '#00ff6b',
+     },
+   ],
+   wrapperStyle: {},
+   labelStyle: {},
+   width: deviceWidth - 20,
+   
+   // Bar
+   barContainerStyle: {},
+   barStyle: {},
+   barColor: '#f1f3f4', 
+   
+   // Box
+   boxContainerStyle: {},
+   boxStyle: {},
+   boxColor: '#f1f3f4',
+   boxSpacing: 2,
+   
+   // Circle
+   outerCircleStyle: {},
+   imageWrapperStyle: {},
+   imageStyle: {},
+   innerCircleStyle: {},
+   labelWrapperStyle: {},
+   labelNoteStyle: {},
 }
-```
-
-#### Bar Component Defaults
-```
-touched: false,
-scoreLimit: 100,
-variations: {
-  digits: /\d/,
-  lower: /[a-z]/,
-  upper: /[A-Z]/,
-  nonWords: /\W/,
-},
-minLength: 5,
-labelVisible: true,
-levels: [
-  {
-    label: 'Pathetically weak',
-    labelColor: '#ff2900',
-    activeBarColor: '#ff2900',
-  },
-  {
-    label: 'Extremely weak',
-    labelColor: '#ff3e00',
-    activeBarColor: '#ff3e00',
-  },
-  {
-    label: 'Very weak',
-    labelColor: '#ff5400',
-    activeBarColor: '#ff5400',
-  },
-  {
-    label: 'Weak',
-    labelColor: '#ff6900',
-    activeBarColor: '#ff6900',
-  },
-  {
-    label: 'So-so',
-    labelColor: '#f4d744',
-    activeBarColor: '#f4d744',
-  },
-  {
-    label: 'Average',
-    labelColor: '#f3d331',
-    activeBarColor: '#f3d331',
-  },
-  {
-    label: 'Fair',
-    labelColor: '#f2cf1f',
-    activeBarColor: '#f2cf1f',
-  },
-  {
-    label: 'Strong',
-    labelColor: '#14eb6e',
-    activeBarColor: '#14eb6e',
-  },
-  {
-    label: 'Very strong',
-    labelColor: '#0af56d',
-    activeBarColor: '#0af56d',
-  },
-  {
-    label: 'Unbelievably strong',
-    labelColor: '#00ff6b',
-    activeBarColor: '#00ff6b',
-  },
-],
-wrapperStyle: {},
-barContainerStyle: {},
-barStyle: {},
-labelStyle: {},
-barColor: '#f1f3f4', 
-width: deviceWidth - 20
-```
-
-#### Box Component Defaults
-```
-touched: false,
-scoreLimit: 100,
-variations: {
-  digits: /\d/,
-  lower: /[a-z]/,
-  upper: /[A-Z]/,
-  nonWords: /\W/,
-},
-minLength: 5,
-labelVisible: true,
-levels: [
-  {
-    label: 'Pathetically weak',
-    labelColor: '#ff2900',
-    activeBarColor: '#ff2900',
-  },
-  {
-    label: 'Extremely weak',
-    labelColor: '#ff3e00',
-    activeBarColor: '#ff3e00',
-  },
-  {
-    label: 'Very weak',
-    labelColor: '#ff5400',
-    activeBarColor: '#ff5400',
-  },
-  {
-    label: 'Weak',
-    labelColor: '#ff6900',
-    activeBarColor: '#ff6900',
-  },
-  {
-    label: 'So-so',
-    labelColor: '#f4d744',
-    activeBarColor: '#f4d744',
-  },
-  {
-    label: 'Average',
-    labelColor: '#f3d331',
-    activeBarColor: '#f3d331',
-  },
-  {
-    label: 'Fair',
-    labelColor: '#f2cf1f',
-    activeBarColor: '#f2cf1f',
-  },
-  {
-    label: 'Strong',
-    labelColor: '#14eb6e',
-    activeBarColor: '#14eb6e',
-  },
-  {
-    label: 'Very strong',
-    labelColor: '#0af56d',
-    activeBarColor: '#0af56d',
-  },
-  {
-    label: 'Unbelievably strong',
-    labelColor: '#00ff6b',
-    activeBarColor: '#00ff6b',
-  },
-],
-wrapperStyle: {},
-boxContainerStyle: {},
-boxStyle: {},
-labelStyle: {},
-boxColor: '#f1f3f4',
-width: deviceWidth - 20,
-boxSpacing: 2
-```
-
-#### Circle Component Defaults
-```
-labelVisible: true,
-minLength: 5,
-variations: {
-  digits: /\d/,
-  lower: /[a-z]/,
-  upper: /[A-Z]/,
-  nonWords: /\W/,
-},
-minValue: 0,
-scoreLimit: 100,
-easeDuration: 500,
-levels: [
-  {
-    label: 'Pathetically weak',
-    labelColor: '#ff2900',
-    activeBarColor: '#ff2900',
-  },
-  {
-    label: 'Extremely weak',
-    labelColor: '#ff3e00',
-    activeBarColor: '#ff3e00',
-  },
-  {
-    label: 'Very weak',
-    labelColor: '#ff5400',
-    activeBarColor: '#ff5400',
-  },
-  {
-    label: 'Weak',
-    labelColor: '#ff6900',
-    activeBarColor: '#ff6900',
-  },
-  {
-    label: 'So-so',
-    labelColor: '#f4d744',
-    activeBarColor: '#f4d744',
-  },
-  {
-    label: 'Average',
-    labelColor: '#f3d331',
-    activeBarColor: '#f3d331',
-  },
-  {
-    label: 'Fair',
-    labelColor: '#f2cf1f',
-    activeBarColor: '#f2cf1f',
-  },
-  {
-    label: 'Strong',
-    labelColor: '#14eb6e',
-    activeBarColor: '#14eb6e',
-  },
-  {
-    label: 'Very strong',
-    labelColor: '#0af56d',
-    activeBarColor: '#0af56d',
-  },
-  {
-    label: 'Unbelievably strong',
-    labelColor: '#00ff6b',
-    activeBarColor: '#00ff6b',
-  },
-],
-wrapperStyle: {},
-outerCircleStyle: {},
-imageWrapperStyle: {},
-imageStyle: {},
-innerCircleStyle: {},
-labelWrapperStyle: {},
-labelStyle: {},
-labelNoteStyle: {},
-```
-
-#### Text Component Defaults
-```
-touched: false,
-scoreLimit: 100,
-variations: {
-  digits: /\d/,
-  lower: /[a-z]/,
-  upper: /[A-Z]/,
-  nonWords: /\W/,
-},
-minLength: 5,
-labelVisible: true,
-levels: [
-  {
-    label: 'Pathetically weak',
-    labelColor: '#ff2900',
-    activeBarColor: '#ff2900',
-  },
-  {
-    label: 'Extremely weak',
-    labelColor: '#ff3e00',
-    activeBarColor: '#ff3e00',
-  },
-  {
-    label: 'Very weak',
-    labelColor: '#ff5400',
-    activeBarColor: '#ff5400',
-  },
-  {
-    label: 'Weak',
-    labelColor: '#ff6900',
-    activeBarColor: '#ff6900',
-  },
-  {
-    label: 'So-so',
-    labelColor: '#f4d744',
-    activeBarColor: '#f4d744',
-  },
-  {
-    label: 'Average',
-    labelColor: '#f3d331',
-    activeBarColor: '#f3d331',
-  },
-  {
-    label: 'Fair',
-    labelColor: '#f2cf1f',
-    activeBarColor: '#f2cf1f',
-  },
-  {
-    label: 'Strong',
-    labelColor: '#14eb6e',
-    activeBarColor: '#14eb6e',
-  },
-  {
-    label: 'Very strong',
-    labelColor: '#0af56d',
-    activeBarColor: '#0af56d',
-  },
-  {
-    label: 'Unbelievably strong',
-    labelColor: '#00ff6b',
-    activeBarColor: '#00ff6b',
-  },
-],
-wrapperStyle: {},
-labelStyle: {}
 ```
 
 ## Password Score Algorithm

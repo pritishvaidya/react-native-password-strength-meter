@@ -1,7 +1,7 @@
 {
   "name": "react-native-password-strength-meter",
-  "version": "1.0.0",
-  "description": "A tool to check password strength in React Native",
+  "version": "0.0.1",
+  "description": "A highly customisable password strength meter implementation with minimal dependencies.",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
@@ -17,7 +17,8 @@
     "react-native",
     "password",
     "password-strength",
-    "password-meter"
+    "password-meter",
+    "react-native-password-strength-meter"
   ],
   "author": "Pritish Vaidya ",
   "license": "MIT",

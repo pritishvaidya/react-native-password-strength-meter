@@ -1,6 +1,6 @@
 {
   "name": "react-native-password-strength-meter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A highly customisable password strength meter implementation with minimal dependencies.",
   "main": "src/index.js",
   "scripts": {

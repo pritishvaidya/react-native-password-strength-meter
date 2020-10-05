@@ -51,13 +51,13 @@ class BoxPasswordStrengthDisplay extends Component {
               Animated.timing(currentAnimatedBoxWidth, {
                 toValue: levelWidth,
                 duration: 700,
-                useNativeDriver: true
+                useNativeDriver: false
               }).start();
             } else {
               Animated.timing(currentAnimatedBoxWidth, {
                 toValue: 0,
                 duration: 700,
-                useNativeDriver: true
+                useNativeDriver: false
               }).start();
             }
             return (

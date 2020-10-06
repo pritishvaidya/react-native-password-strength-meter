@@ -43,7 +43,7 @@ class BarPasswordStrengthDisplay extends Component {
     Animated.timing(this.animatedBarWidth, {
       toValue: absoluteWidth,
       duration: 700,
-      useNativeDriver: true
+      useNativeDriver: false
     }).start();
     return (
       <View style={[style.wrapper, wrapperStyle]}>
